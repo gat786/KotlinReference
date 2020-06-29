@@ -153,6 +153,39 @@ fun bitwiseOperations(){
     println("Inverse of $a in bits is ${a.inv()}")
 }
 
+/*
+* Characters - Char
+* Char are variables which hold one length string i.e. string which has a length of one
+* a char can be defined as
+* val character : Char 'a'
+* They can not directly be viewed as ints and you will need to convert them
+* manually if you wish to perform some actions on them as an int.
+ */
+
+fun characterTest(){
+    val character = 'a'
+    val character2 : Char = 'b'
+}
+
+/*
+* Booleans -
+* Booleans as you would guess are data types which hold kind of a binary data. i.e. either true
+* or false
+*
+* you can use binary functions on booleans like
+* || - lazy disjunction // basically or gate
+* && - lazy conjunction // basically and gate
+* ! - negation // basically negates the boolean data
+ */
+
+fun booleansData(){
+    val bool1 = true
+    val bool2 : Boolean = false
+
+    println("Disjunction would be ${bool1 || bool2}")
+    println("Conjunction would be ${bool1 && bool2}")
+    println("Negation would be ${!bool1}")
+}
 
 /*
 * Arrays -
@@ -165,6 +198,12 @@ fun bitwiseOperations(){
 *
  */
 
-fun main() {
+fun funWithArrays(){
+    val intArray = intArrayOf(1,2,3,4,5,6)
+    var intList = listOf<Int>(1,2,3,4,5)
+}
 
+
+fun main() {
+    booleansData()
 }
