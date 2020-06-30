@@ -1,5 +1,7 @@
 package Basics
 
+import kotlin.math.*
+
 fun printingSomethingToConsole(){
     print("This can print anything so lets do the obvious! Hello World!!!")
     // you can manually add \n here to get a new line
@@ -198,12 +200,35 @@ fun booleansData(){
 *
  */
 
-fun funWithArrays(){
+fun funWithCollectives(){
     val intArray = intArrayOf(1,2,3,4,5,6)
     var intList = listOf<Int>(1,2,3,4,5)
+    /*
+    * List and Arrays are similar its just arrays are mutable in the sense they
+    * have a set property on its element while Lists Don't have those.
+    * If you uncomment the next two lines you will see the difference.
+    * intArray[2] = 20
+    * intList[2] = 20
+    *
+    * Both have fixed length so once created you cannot append elements
+    * If you want a list with undetermined length you can use MutableList
+    */
+
+    val changeAble = mutableListOf<Int>(1,2,3,4)
+    changeAble[2] = 10
+    changeAble.add(23)
+    println("Changeable lists content are $changeAble")
+
+    val intArrayFactoryMethod = IntArray(5){ it }
+    //val intArrayFactoryMethod = IntArray(5){ it.toDouble().pow(2).toInt() }
+
+
+    println("IntArray with factory method ${intArrayFactoryMethod.toList()}")
 }
 
 
+
+
 fun main() {
-    booleansData()
+    funWithCollectives()
 }
