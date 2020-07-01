@@ -9,7 +9,7 @@ fun printingSomethingToConsole(){
     println("This is the same with a newline thingy attached at the end")
     // \n is automatically attached at the end here
 
-    // lets do some string interpolation and cool stuff with it!
+    // lets do some string templates and cool stuff with it!
     val variable = 123
     println("Print some numbers like this ${123} or a variable like this $variable")
 
@@ -226,9 +226,33 @@ fun funWithCollectives(){
     println("IntArray with factory method ${intArrayFactoryMethod.toList()}")
 }
 
+/*
+* Strings
+* Strings are immutable data type in kotlin it can be defined as
+* val someStringName = "Random String Text"
+* you can access the data from index like
+* print(someStringName[1]) will print "a"
+*
+ */
 
+fun stringUsage(){
+    val str : String = "Hello World! How are you!"
+//    for(i in str){
+//        print(i)
+//    }
 
+    val stringRaw = """
+        I can type almost anything in here
+        even escape characters like / \ $ % , " " 
+        and it would work perfectly fine thanks to RawStrings
+        these can be use full to type long random strings which require no edits
+        and variable inputs. 
+        The line endings are also preserved here.
+    """.trimIndent().trimIndent()
+
+    println(stringRaw)
+}
 
 fun main() {
-    funWithCollectives()
+    stringUsage()
 }
