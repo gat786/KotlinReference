@@ -21,3 +21,38 @@ package Basics
 * it is not necessary for you to know every imports usage but i have mentioned
 * it if for some reasons you want to know.
  */
+
+/*
+ Packages are like collection of classes and each package consists of classes
+ that are related to that package.
+ To import any class you use the normal import statement as well as you can
+ include a whole package using a * in the statement that will basically import
+ everything inside the package.
+ */
+
+import kotlin.math.*
+
+fun math(){
+    val number = 20
+    println(number)
+}
+
+class OurFirstClass{
+
+    fun firstFunction(){
+        println("This is the first function i ever made inside a class")
+    }
+}
+
+open class OurSecondClass{
+
+    open fun secondFunction(){
+        val firstClass = OurFirstClass()
+        firstClass.firstFunction()
+    }
+}
+
+fun main() {
+    val secondClass = OurSecondClass()
+    secondClass.secondFunction()
+}
