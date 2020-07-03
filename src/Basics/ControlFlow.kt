@@ -1,5 +1,7 @@
 package Basics
 
+import java.lang.Integer.parseInt
+
 /*
 * Control Flows in Kotlin include If, When, For and While
 *
@@ -41,3 +43,59 @@ fun whenExpression(option:Int){
     }
 }
 
+
+fun whenExpressionVariant1(number:Int){
+    val validNumbers = listOf(2,4,6,8,10)
+    when(number){
+        parseInt("1")-> println("This is one bros")
+        in validNumbers -> print("Is a valid number")
+        in 3..11 step 1 -> println("is a odd number in between 2-11")
+        else -> println("I didn't plan for it to come should've thought earlier")
+    }
+}
+
+/*
+* Loops
+* Kotlin supports for, while and do while loops
+* and they are almost as same as it would work in any other language
+* They are written as in the below functions.
+*
+* You have to use the for and while loops in kotlin as if they were of python.
+* for loops in kotlin are a little different than the ones we see in java.
+ */
+
+fun forLoops(){
+    for(i in 1..3){
+        println(i)
+    }
+
+    // for looping through a collective
+    val validRanges = listOf(1,2,5,10,20,50,100,200,500,2000)
+    for(i in validRanges){
+        println("Current number is $i")
+    }
+
+    // for looping through a collectible with index
+    for(i in validRanges.withIndex()){
+        println("Index is ${i.index} and value is ${i.value}")
+    }
+}
+
+fun whileLoops(i:Int){
+    var iterator = i
+    while (iterator > 10){
+        println("I is greater than 10 and currently is $iterator")
+        iterator--
+    }
+}
+
+fun doWhileLoops(){
+    do {
+        println("We are doing some work in do block!")
+    }while (false)
+}
+
+fun main() {
+    whileLoops(113)
+    doWhileLoops()
+}
