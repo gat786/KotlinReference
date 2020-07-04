@@ -84,7 +84,14 @@ fun forLoops(){
 fun whileLoops(i:Int){
     var iterator = i
     while (iterator > 10){
+        if(iterator % 2 ==0) {
+            println("even number")
+            iterator--
+            continue
+        }
         println("I is greater than 10 and currently is $iterator")
+        if(iterator == 50)
+            break
         iterator--
     }
 }
