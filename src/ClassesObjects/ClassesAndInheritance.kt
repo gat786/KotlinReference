@@ -12,6 +12,9 @@ class ClassesAndInheritance {
 
         // calling a class with private constructor
         // val person = Person()
+
+        //var p3 = Person3("ganesh",21)
+        var constructors = Constructors(2)
     }
 }
 
@@ -59,15 +62,95 @@ class Person2(var name: String){
         println("The other declared variable is $someOtherVariable")
     }
 }
+// You can have as many constructors as you wish.
+// declaring them is also as same as primary constructors using the constructor
+// keyword. It is mandatory to delegate to the primary constructor from each
+// secondary constructor using the `this` keyword. if you forget to do this the
+// code wont compile.
 
-// Official way of having multiple constructors for kotlin classes.
-// i dont completely understand how this system works. The official reference
-// says you have to call the primary constructor from the secondary constructor
-// but it works just fine even if you dont so i dont know how it is supposed to
-// be done maybe someone can help me out with it.
-class Human(val name: String) {
-    var children: MutableList<Human> = mutableListOf<Human>()
-    constructor(someName: String, parent: Human) : this(someName) {
-        parent.children.add(this)
+class Person3(val name: String) {
+    var children: MutableList<Person3> = mutableListOf<Person3>()
+
+    constructor(name: String, number: Int):this(name){
+        println("Secondary constructor")
+    }
+}
+
+// this class is here to showcase that init blocks are called after the primary
+// constructors so any secondary constructor will run after it. You can think
+// of it that it becomes the part of primary constructor and gets attached to
+// its end.
+
+class Constructors {
+    init {
+        println("Init block")
+    }
+
+    constructor(i: Int) {
+        println("Constructor")
+    }
+}
+//
+//  Classes can contain:
+//  Class members
+//
+//  Constructors and initializer blocks
+//  Functions
+//  Properties
+//  Nested and Inner Classes
+//  Object Declarations
+//
+//  we have already looked at constructors now lets look at others.
+// lets introduce inheritance as well.
+// all classes normally are final i.e. they cant be inherited.
+// if you want your class to be inherited make it open by specifying. the
+// `open` specifier before class declaration
+
+// the below code wont work with the first declaration of Vehicle class
+// but will work with the open declaration of the Vehicle class
+// btw to inherit a class you just do `:parentclassname()` after the derived
+// class declarations first line before starting its body.
+
+//class Vehicle{ }
+
+open class Vehicle{}
+
+class Car :Vehicle(){}
+
+// its necessary to initialize the base class as you soon as you infer it in
+// the child class.
+
+open class Base(p: Int){
+    constructor(p: Int,q: Int):this(p){}
+}
+
+class Derived(p: Int) : Base(p)
+
+// if your derived class doesnt have a primary constructor then you will have
+// initialize the parent class using the super keyword after each constructor
+// that you have in the derived class.
+
+class MoreDerived:Base{
+
+    constructor(p:Int):super(p){}
+
+    // here i can use any of the constructors of the base class.
+    // which wouldn't have been possible in the `Derived` class.
+    constructor(p:Int,q:Int):super(p,q){}
+}
+
+// Overriding methods.
+// You can override the functions from the base class in the derived class
+// using override keyword.
+
+open class Automobile{
+    open fun move(){
+        println("I move")
+    }
+}
+
+class Aeroplane:Automobile(){
+    override fun move(){
+        println("I move very fast")
     }
 }
